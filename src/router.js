@@ -20,12 +20,10 @@ const router = (
             <Switch>
               <Route path="/films/now-showing" component={NowShowing}/>
               <Route path="/films/after-showing" component={AfterShowing}/>
-              <Redirect from="/films" to="/films/now-playing"/>
             </Switch>
           </Film>
-        } >
+        }>
         </Route>
-        <Redirect from="/" to="/home"/>
       </Switch>
     </Main>
   </Router>
