@@ -28,7 +28,7 @@ class AfterShowing extends Component{
         const afterShowDomList = this.state.afterShowingFilmList.map((item)=>{
             return (
                 <div key={item.id}>
-                    <NavLink to={`/films/${item.id}`}>
+                    <NavLink to={`/detail/${item.id}`}>
                         <div className="now-show-item">
                             <div className="now-show-cen">
                                 <div className="left-img-warp">

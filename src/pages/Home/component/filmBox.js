@@ -23,7 +23,7 @@ class FilmBox extends Component{
         this.props.filmInfo.isNowPlaying!==""?cinemaCount=this.props.filmInfo.cinemaCount+"家电影上映":cinemaCount="";
         return (
             <div className="move-item">
-                <NavLink to={`/films/${this.props.filmInfo.id}`} >
+                <NavLink to={`/detail/${this.props.filmInfo.id}`} >
                      <div className="movie-item-filmImage">
                         <img src={this.props.filmInfo.cover.origin} alt="电影照片" />
                     </div>

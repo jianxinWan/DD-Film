@@ -7,6 +7,7 @@ class Film extends Component{
         super(props);
     }
     componentDidMount(){
+        
     }
     render(){
         return (
