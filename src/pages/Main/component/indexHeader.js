@@ -9,7 +9,7 @@ class IndexHeader extends Component{
     }
     render(){
         return (
-            <div>
+            <React.Fragment>
                 <div id="film-index-header">
                     <div className="header-left-warp">
                         <div className="menu-warp" onClick={this.props.getChildInfo}>
@@ -31,7 +31,7 @@ class IndexHeader extends Component{
                         </div>
                     </div>
                 </div>
-            </div>
+            </React.Fragment>
         )
     }
 }

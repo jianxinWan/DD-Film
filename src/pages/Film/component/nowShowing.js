@@ -27,7 +27,7 @@ class NowShowing extends Component{
     render(){
         const nowShowDomList = this.state.nowShowingFilmList.map((item)=>{
             return (
-                <div key={item.id}>
+                <React.Fragment key={item.id}>
                     <NavLink to={`/detail/${item.id}`}>
                         <div className="now-show-item">
                             <div className="now-show-cen">
@@ -46,7 +46,7 @@ class NowShowing extends Component{
                         </div>
                         <hr style={{border:'1px dashed  #ccc'}} /> 
                     </NavLink>
-                </div>
+                </React.Fragment>
             )
         }) 
         return (

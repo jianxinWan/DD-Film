@@ -8,6 +8,7 @@ import {
 import Main from './pages/Main/main';
 import Home from './pages/Home/home';
 import Film from './pages/Film/film';
+import Theater from './pages/Theatre/theater';
 import NowShowing from './pages/Film/component/nowShowing';
 import AfterShowing from './pages/Film/component/afterShowing';
 import FilmDetail from './pages/Film/component/filmDetail';
@@ -28,8 +29,9 @@ const router = (
         </Route>
         <Route path="/detail/:filmId" render={(props)=>
           <FilmDetail {...props} />
-        } >
+        }>
         </Route>
+        <Route path="/theater" component={Theater}></Route>
         <Redirect from="/" to="/home" />
       </Switch>
     </Main>

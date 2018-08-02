@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import fetch from 'isomorphic-fetch';
 import {NavLink} from 'react-router-dom';
 
+import Loading from '../other/loading/loading'
 import Slide from './component/slide';
 import FilmBox from './component/filmBox';
 import './style/home.less';
@@ -11,7 +12,8 @@ class Home extends Component{
         super(props);
         this.state={
             nowFilmInfoList:[],
-            afterFilmInfoList:[]
+            afterFilmInfoList:[],
+            loadingShow:true
         }
     }
     getNowShowing(){
@@ -31,9 +33,9 @@ class Home extends Component{
         fetch(afterShowUrl).then(data=>
             data.json()
         ).then((res)=>{
-            console.log(res);
             this.setState({
-                afterFilmInfoList:res.data.films
+                afterFilmInfoList:res.data.films,
+                loadingShow:false
             })
         }).catch((err)=>{
             console.log(err);
@@ -60,37 +62,49 @@ class Home extends Component{
                 <FilmBox filmInfo={item} key={item.id} />
             )
         })
+        let content = null;
+        if(this.state.loadingShow){
+            content = (
+                <Loading isShow={this.state.loadingShow} />
+            )
+        }else{
+            content = (
+                <div>
+                    <Slide />
+                    <div className="nowShow-warp">
+                        {nowFilmItemList}
+                        <div className="show-more">
+                            <NavLink to="/films/now-showing">
+                                <div className="show-more-btn">加载更多</div>
+                            </NavLink>
+                        </div>
+                    </div>
+                    <div className="afterShow-warp">
+                        <div className="spliceLine">
+                            <hr/>
+                            <div className="afterLine">即将上映</div>
+                            <hr/>
+                        </div>
+                        {AfterFilmItemList}
+                        <div className="show-more">
+                            <NavLink to="/films/after-showing">
+                                <div className="show-more-btn">加载更多</div>
+                            </NavLink>
+                        </div>
+                    </div>
+                    <div className="home-footer">
+                        <div className="spliceLine">
+                            <hr/>
+                            <div className="power">由铛铛提供技术支持</div>
+                            <hr/>
+                        </div>
+                    </div>
+                </div>
+            )
+        }
         return (
             <div className="homePage">
-                <Slide />
-                <div className="nowShow-warp">
-                    {nowFilmItemList}
-                    <div className="show-more">
-                        <NavLink to="/films/now-showing">
-                            <div className="show-more-btn">加载更多</div>
-                        </NavLink>
-                    </div>
-                </div>
-                <div className="afterShow-warp">
-                    <div className="spliceLine">
-                        <hr/>
-                        <div className="afterLine">即将上映</div>
-                        <hr/>
-                    </div>
-                    {AfterFilmItemList}
-                    <div className="show-more">
-                        <NavLink to="/films/after-showing">
-                            <div className="show-more-btn">加载更多</div>
-                        </NavLink>
-                    </div>
-                </div>
-                <div className="home-footer">
-                    <div className="spliceLine">
-                        <hr/>
-                        <div className="power">由铛铛提供技术支持</div>
-                        <hr/>
-                    </div>
-                </div>
+                {content}
             </div>
         )
     }

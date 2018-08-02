@@ -33,7 +33,6 @@ class Index extends Component{
                 <div>
                     <IndexHeader getChildInfo={this.getChildInfo.bind(this)} />
                 </div>
-                
                 <div className="content-warp" >
                     <div  style={{display:this.state.isFirstShow?'none':'block'}} 
                     className={['animated','leftMenu',this.state.menuDisplay ? 'slideInLeft':'slideOutLeft'].join(' ')}>

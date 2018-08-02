@@ -14,7 +14,6 @@ class FilmBox extends Component{
         return dateObj.getFullYear() + "年" + (dateObj.getMonth() + 1) + "月" + dateObj.getDate() + "日 "
     }
     componentDidMount(){
-        console.log(this.props.filmInfo);
     }
     render(){
         let gradeOrTime = "";
