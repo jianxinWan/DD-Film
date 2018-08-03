@@ -18,5 +18,78 @@
             width: 70%;
             height:100%;
         }
+        .menu-right{
+            position: fixed;
+            top:3rem;
+            right:0;
+            z-index: 98;
+            width: 100%;
+            height:100%;
+            background-color:rgba(40, 40, 40,0.6);
+        }
     }
+}
+.slideInLeft {
+    -webkit-animation: slideInLeft 0.6s ease both;
+    animation: slideInLeft 0.6s ease both;
+}
+@-webkit-keyframes slideInLeft {
+    from {opacity: 0;-webkit-transform: translateX(-100%);}
+    to{opacity: 1;}
+}
+@keyframes slideInLeft {
+    from{opacity: 0;-webkit-transform: translateX(-100%); transform: translateX(-100%);}
+    to { opacity: 1;}
+}
+.slideOutLeft {
+    -webkit-animation: slideOutLeft 0.6s ease both;
+    animation: slideOutLeft 0.6s ease both;
+}
+@-webkit-keyframes slideOutLeft {
+    from {opacity: 1;}
+    to{opacity: 0;-webkit-transform:-100%}
+}
+@keyframes slideOutLeft {
+    from{opacity: 1;}
+    to { opacity: 0;-webkit-transform: (-100%); transform: translateX(-100%);}
+}
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.fadeIn {
+    -webkit-animation-name: fadeIn 1s;
+    animation-name: fadeIn 1s;
+}
+@-webkit-keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+.fadeOut {
+    -webkit-animation-name: fadeOut 1s;
+    animation-name: fadeOut 1s;
 }

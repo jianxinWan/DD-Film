@@ -34,6 +34,7 @@ class Theater extends Component{
         fetch(cinemaUrl).then(data=>
             data.json()
         ).then((res)=>{
+            console.log(this.getNewArray(res.data.cinemas));
             this.setState({
                 getInfoFinshed:true,
                 district:this.getNewArray(res.data.cinemas)
@@ -50,10 +51,13 @@ class Theater extends Component{
         if(this.state.getInfoFinshed){
             let districtList = Object.keys(this.state.district).map((item)=>{
                 return (
-                    <div className="district-item" onClick={this.addAnimated} key={item} >
-                        <span>{item}</span>
-                        <i className={["iconfont",'icon-more'].join(" ")}></i>
-                    </div>
+                    <React.Fragment key={item}>
+                        <div className="district-item" onClick={this.addAnimated}  >
+                            <span>{item}</span>
+                            <i className={["iconfont",'icon-more'].join(" ")}></i>
+                        </div>
+                        <Cinema cinameInfo={this.state.district[item]} />
+                    </React.Fragment>
                 )
             })
             districtDom  = (

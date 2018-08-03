@@ -9,6 +9,9 @@ import Main from './pages/Main/main';
 import Home from './pages/Home/home';
 import Film from './pages/Film/film';
 import Theater from './pages/Theatre/theater';
+import Mydoc from './pages/Mydoc/mydoc';
+import Login from './pages/Mydoc/component/login';
+import Center from './pages/Mydoc/component/center';
 import NowShowing from './pages/Film/component/nowShowing';
 import AfterShowing from './pages/Film/component/afterShowing';
 import FilmDetail from './pages/Film/component/filmDetail';
@@ -32,6 +35,14 @@ const router = (
         }>
         </Route>
         <Route path="/theater" component={Theater}></Route>
+        <Route path="/mydoc" render={()=>
+          <Mydoc>
+            <Switch>
+              <Route path="/mydoc/login" component={Login} />
+              <Route path="/mydoc/center" component={Center} />
+            </Switch>
+          </Mydoc>
+        }/>
         <Redirect from="/" to="/home" />
       </Switch>
     </Main>

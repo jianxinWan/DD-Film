@@ -9,8 +9,10 @@ class Index extends Component{
         super(props);
         this.state = {
             menuDisplay:false,
-            isFirstShow:true
+            isFirstShow:true,
+            
         }
+        this.getListClick = this.getListClick.bind(this)
     }
     //自定义函数
     getChildInfo(){
@@ -37,6 +39,8 @@ class Index extends Component{
                     <div  style={{display:this.state.isFirstShow?'none':'block'}} 
                     className={['animated','leftMenu',this.state.menuDisplay ? 'slideInLeft':'slideOutLeft'].join(' ')}>
                         <IndexMenu getListClick={this.getListClick.bind(this)} />
+                    </div>
+                    <div onClick={this.getListClick} className={['menu-right',this.state.menuDisplay?'fadeIn':'fadeOut'].join(' ')} style={{display:this.state.menuDisplay ?'block':'none'}}> 
                     </div>
                     <section>
                         {this.props.children}
